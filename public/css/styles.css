@@ -1,0 +1,138 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    /* background: linear-gradient(to bottom, #f0f0f0, #e8e8e8); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #f9f7f4;
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #5a6fd1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.patient { background-color: #4CAF50; }
+.doctor { background-color: #2196F3; }
+.admin { background-color: #22125d; }
+.patient:hover { background-color: #45a049; }
+.doctor:hover { background-color: #1e88e5; }
+.admin:hover { background-color: #1e88e5; }
+p {
+    margin-top: 15px;
+    color: #666;
+}
+
+a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Admin Dashboard Styles */
+.dashboard-container {
+    background-color:#f0f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    color: white;
+}
+
+.dashboard-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background:#e8f5e9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+    text-align: center;
+    color: #333;
+}
+
+.card h2 {
+    /* margin-bottom: 20px; */
+    margin: 10px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.card button {
+    background-color: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    min-width: 250px;
+}
+
+.card button:hover {
+    background-color: #5a6fd1;
+}

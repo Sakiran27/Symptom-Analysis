@@ -1,0 +1,769 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2B6CB0;
+    --primary-light: #4299E1;
+    --primary-dark: #2C5282;
+    --secondary: #38A169;
+    --secondary-light: #48BB78;
+    --accent: #805AD5;
+    --gray-50: #F7FAFC;
+    --gray-100: #EDF2F7;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E0;
+    --gray-600: #718096;
+    --gray-700: #4A5568;
+    --gray-800: #2D3748;
+    --gray-900: #1A202C;
+    --red-600: #E53E3E;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--gray-900);
+    background-color: var(--gray-50);
+    min-height: 100vh;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* Background Gradients */
+.bg-gradient {
+    background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
+    min-height: 100vh;
+    padding: 3rem 1rem;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+p {
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 1rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.header h1 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+}
+
+/* Portal Grid */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Cards */
+.portal-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.portal-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+}
+
+.portal-card:hover .card-content {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+/* Icons */
+.icon-wrapper {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.portal-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+.icon-wrapper.blue {
+    background-color: #EBF8FF;
+    border: 2px solid #BEE3F8;
+}
+
+.icon-wrapper.green {
+    background-color: #F0FFF4;
+    border: 2px solid #C6F6D5;
+}
+
+.icon-wrapper.purple {
+    background-color: #FAF5FF;
+    border: 2px solid #E9D8FD;
+}
+
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.blue .icon { color: var(--primary); }
+.green .icon { color: var(--secondary); }
+.purple .icon { color: var(--accent); }
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+input, select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+select[multiple] {
+    height: auto;
+    min-height: 200px;
+}
+
+button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Dashboard */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+}
+
+/* Appointment and Doctor Cards */
+.appointment-card, .doctor-card {
+    background: var(--gray-50);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+}
+
+.appointment-card:hover, .doctor-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Symptoms List */
+#symptoms {
+    height: 20rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 0.75rem;
+    overflow-y: auto;
+    background-color: white;
+}
+
+#symptoms option {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#symptoms option:checked {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 5px;
+    border: 2px solid var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--red-600);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #FFF5F5;
+    border-radius: 0.5rem;
+    border: 1px solid #FED7D7;
+}
+
+/* Links */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container, .dashboard-container {
+        padding: 1rem;
+    }
+
+    .header {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .portal-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2B6CB0;
+    --primary-light: #4299E1;
+    --primary-dark: #2C5282;
+    --secondary: #38A169;
+    --secondary-light: #48BB78;
+    --accent: #805AD5;
+    --gray-50: #F7FAFC;
+    --gray-100: #EDF2F7;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E0;
+    --gray-600: #718096;
+    --gray-700: #4A5568;
+    --gray-800: #2D3748;
+    --gray-900: #1A202C;
+    --red-600: #E53E3E;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--gray-900);
+    background-color: var(--gray-50);
+    min-height: 100vh;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* Background Gradients */
+.bg-gradient {
+    background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
+    min-height: 100vh;
+    padding: 3rem 1rem;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+p {
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 1rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.header h1 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+}
+
+/* Portal Grid */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Cards */
+.portal-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.portal-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+}
+
+.portal-card:hover .card-content {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+/* Icons */
+.icon-wrapper {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.portal-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+.icon-wrapper.blue {
+    background-color: #EBF8FF;
+    border: 2px solid #BEE3F8;
+}
+
+.icon-wrapper.green {
+    background-color: #F0FFF4;
+    border: 2px solid #C6F6D5;
+}
+
+.icon-wrapper.purple {
+    background-color: #FAF5FF;
+    border: 2px solid #E9D8FD;
+}
+
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.blue .icon { color: var(--primary); }
+.green .icon { color: var(--secondary); }
+.purple .icon { color: var(--accent); }
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+input, select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+select[multiple] {
+    height: auto;
+    min-height: 200px;
+}
+
+button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Dashboard */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+}
+
+/* Appointment and Doctor Cards */
+.appointment-card, .doctor-card {
+    background: var(--gray-50);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+}
+
+.appointment-card:hover, .doctor-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Symptoms List */
+#symptoms {
+    height: 20rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 0.75rem;
+    overflow-y: auto;
+    background-color: white;
+}
+
+#symptoms option {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#symptoms option:checked {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 5px;
+    border: 2px solid var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--red-600);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #FFF5F5;
+    border-radius: 0.5rem;
+    border: 1px solid #FED7D7;
+}
+
+/* Links */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container, .dashboard-container {
+        padding: 1rem;
+    }
+
+    .header {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .portal-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    form {
+        padding: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.portal-card, .card, .appointment-card, .doctor-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    form {
+        padding: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.portal-card, .card, .appointment-card, .doctor-card {
+    animation: fadeIn 0.5s ease-out;
+}

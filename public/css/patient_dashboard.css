@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Symptom Selection */
+#symptoms {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+#symptoms:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+}
+
+/* Result Section */
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#result h3 {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#result p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Doctor Cards */
+.doctor-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 8px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+
+    #symptoms {
+        font-size: 0.9rem;
+    }
+}

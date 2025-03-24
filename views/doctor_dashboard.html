@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="/css/rak.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome to Your Doctor Dashboard</h1>
+            <nav class="dashboard-nav">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../" class="nav-link" onclick="logout()">Logout</a>
+            </nav>
+        </header>
+
+        <div class="card">
+            <h2>View Appointments</h2>
+            <form id="viewAppointmentsForm">
+                <label for="di">Doctor Id:</label>
+                <input type="number" id="di" required>
+                <label for="appointmentDate">Select Date:</label>
+                <input type="date" id="appointmentDate" required>
+                <button type="submit">View Appointments</button>
+            </form>
+            <div id="appointmentsList"></div>
+        </div>
+    </div>
+
+    <script>
+       document.getElementById('viewAppointmentsForm').onsubmit = function (e) {
+    e.preventDefault();
+    const appointmentDate = document.getElementById('appointmentDate').value;
+    const doctorId = document.getElementById('di').value;
+    console.log(doctorId)
+
+    fetch(`/doctor-appointments?doctor_id=${doctorId}&appointment_date=${appointmentDate}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const appointmentsList = document.getElementById('appointmentsList');
+            if (data.appointments.length === 0) {
+                appointmentsList.innerHTML = '<p>No appointments found for the selected date.</p>';
+            } else {
+                appointmentsList.innerHTML = data.appointments.map(appointment => `
+                    <div class="appointment-card">
+                        <p><strong>Patient Name:</strong> ${appointment.patient_name}</p>
+                        <p><strong>Age:</strong> ${appointment.patient_age}</p>
+                        <p><strong>Mobile No:</strong> ${appointment.patient_mobile}</p>
+                        <p><strong>Date:</strong> ${appointment.appointment_date}</p>
+                    </div>
+                `).join('');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error fetching appointments.');
+        });
+};
+    </script>
+</body>
+</html>
